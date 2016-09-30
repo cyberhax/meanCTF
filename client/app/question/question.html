@@ -1,0 +1,25 @@
+
+<div class="container" ng-show='{{status}}'>
+<table class="table table-bordered" >
+  <thead>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Info</td>
+    <td>Hint</td>
+    <td>Point</td>
+    <td>Answer</td>
+    <td>Submit</td>
+  </thead>
+  <tbody ng-repeat="soalan in questions">
+  <tr>
+    <td>{{$index+1}}</td>
+    <td>{{soalan.name}}</td>
+    <td>{{soalan.info}}</td>
+    <td>{{soalan.hint}}</td>
+    <td>{{soalan.point}}</td>
+    <td><input type="text" placeholder='answer' ng-model="makan"></td>
+    <td><button class="btn btn-primary" ng-click="answer(makan,$index)">Submit</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>
