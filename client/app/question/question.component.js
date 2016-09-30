@@ -7,7 +7,7 @@ import routes from './question.routes';
 
 export class QuestionComponent {
   /*@ngInject*/
-  constructor($http, $scope, User,$timeout,$window,$state) {
+  constructor($http, $scope, User,$timeout,$state) {
     
     $scope.status = true;
 
@@ -33,7 +33,6 @@ export class QuestionComponent {
         $http.post('api/questions/answer/' + $scope.questions[index]._id, $scope.test).success(function() {
           $scope.test = '';
           $state.go($state.$current, null, { reload: true });
-          // $window.location.reload();
         });
       }
     };
