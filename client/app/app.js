@@ -28,11 +28,12 @@ import question from './question/question.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
+import angularMaterialize from 'angular-materialize';
 
 import './app.scss';
 
 angular.module('ctfApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-    uiBootstrap, _Auth, account, admin, navbar, footer, main, scoreboard, question, constants, socket, util,'ngMaterial'
+    uiBootstrap, _Auth, account, admin, navbar, footer, main, scoreboard, question, constants, socket, util
   ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

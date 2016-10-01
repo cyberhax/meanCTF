@@ -1,12 +1,11 @@
 <div class="container">
   <h1> scoreboard </h1>
-  <table class="table table-hover">
+  <table class="bordered">
     <thead>
       <tr>
         <th>Place</th>
         <th>Name</th>
         <th>Point</th>
-        <!--<th>Email</th>-->
       </tr>
     </thead>
     <tbody ng-repeat="user in users | orderBy:'-point'">
@@ -14,7 +13,6 @@
         <th>{{$index+1}}</th>
         <td>{{user.name}}</td>
         <td>{{user.point}}</td>
-        <!--<td>john@example.com</td>-->
       </tr>
   </table>
 </div>
