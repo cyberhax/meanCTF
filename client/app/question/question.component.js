@@ -17,13 +17,13 @@ export class QuestionComponent {
       answer: '',
       user: User.get()
     };
-    $timeout(retrieveQuestions,1500);
-
     $scope.user = User.get();
     $scope.myFilter = function(soal){
       // console.log('myfilter',$scope.user);
       return !($scope.user.question.includes(soal._id));
     }
+    $timeout(retrieveQuestions,0).then(()=>{
+      console.log('done load question');
 
     $scope.answer = function(answer, index) {
       $scope.test.answer = answer;
@@ -35,6 +35,12 @@ export class QuestionComponent {
         });
       }
     };
+
+    })
+
+    
+
+    
 
 function retrieveQuestions(){
 $http.get('api/questions').success(questions => {
