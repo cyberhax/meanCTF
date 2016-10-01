@@ -17,8 +17,7 @@ export class QuestionComponent {
       answer: '',
       user: User.get()
     };
-    
-    $timeout(retrieveQuestions,500);
+    $timeout(retrieveQuestions,1500);
 
     $scope.user = User.get();
     $scope.myFilter = function(soal){
