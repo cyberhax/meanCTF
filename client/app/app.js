@@ -32,7 +32,7 @@ import socket from '../components/socket/socket.service';
 import './app.scss';
 
 angular.module('ctfApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-    uiBootstrap, _Auth, account, admin, navbar, footer, main, scoreboard, question, constants, socket, util
+    uiBootstrap, _Auth, account, admin, navbar, footer, main, scoreboard, question, constants, socket, util,'ngMaterial'
   ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

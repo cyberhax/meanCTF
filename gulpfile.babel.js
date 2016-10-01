@@ -254,7 +254,7 @@ gulp.task('transpile:server', () => {
         .pipe(gulp.dest(`${paths.dist}/${serverPath}`));
 });
 
-gulp.task('lint:scripts', cb => runSequence(['lint:scripts:client', 'lint:scripts:server'], cb));
+//gulp.task('lint:scripts', cb => runSequence(['lint:scripts:client', 'lint:scripts:server'], cb));
 
 gulp.task('lint:scripts:client', () => {
     return gulp.src(_.union(
@@ -338,7 +338,7 @@ gulp.task('serve', cb => {
     runSequence(
         [
             'clean:tmp',
-            'lint:scripts',
+            // 'lint:scripts',
             'inject',
             'copy:fonts:dev',
             'env:all'
