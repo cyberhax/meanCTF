@@ -12,22 +12,18 @@ export class QuestionComponent {
     $scope.status = true;
 
     $http.defaults.headers.post['Content-Type'] = 'application/json';
-    $scope.user = '';
-    $scope.test = {
-      answer: '',
-      user: User.get()
-    };
     $scope.user = User.get();
-    $scope.myFilter = function(soal){
-      // console.log('myfilter',$scope.user);
-      return !($scope.user.question.includes(soal._id));
-    }
+    
     $timeout(retrieveQuestions,0).then(()=>{
       console.log('done load question');
 
     $scope.answer = function(answer, index) {
       $scope.test.answer = answer;
       if ($scope.test.answer) {
+        $scope.test = {
+          answer: '',
+          user: $scope.user
+        };
         // console.log('sned:', $scope.test);
         $http.post('api/questions/answer/' + $scope.questions[index]._id, $scope.test).success(function() {
           $scope.test = '';
@@ -35,6 +31,10 @@ export class QuestionComponent {
         });
       }
     };
+    $timeout(filter,500);
+
+
+    
 
     })
 
@@ -49,6 +49,13 @@ $http.get('api/questions').success(questions => {
         return !($scope.user.question.includes(soal._id));
       });
     });
+}
+
+function filter() {
+  $scope.myFilter = function(soal){
+      // console.log('myfilter',$scope.user);
+      return !($scope.user.question.includes(soal._id));
+    }
 }
     
   }
