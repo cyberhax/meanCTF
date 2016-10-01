@@ -7,7 +7,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/ctf-dev'
+    uri: process.env.MONGODB_URI || 'mongodb://localhost/ctf-dev'
   },
 
   // Seed database on startup

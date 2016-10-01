@@ -14,7 +14,8 @@ import _ from 'lodash';
 // All configurations will extend these options
 // ============================================
 var all = {
-  env: process.env.NODE_ENV,
+  // env: process.env.NODE_ENV,
+  env: 'development',
 
   // Root path of server
   root: path.normalize(`${__dirname}/../../..`),

@@ -17,7 +17,6 @@ export class QuestionComponent {
       answer: '',
       user: User.get()
     };
-    
     $timeout(retrieveQuestions,500);
 
     $scope.user = User.get();
