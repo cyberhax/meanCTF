@@ -1,14 +1,16 @@
 'use strict';
 
 import angular from 'angular';
-// import ngAnimate from 'angular-animate';
+import ngAnimate from 'angular-animate';
 import ngCookies from 'angular-cookies';
 import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
 import 'angular-socket-io';
-
+import ngMaterial from 'angular-material';
+import ngAria from 'angular-aria';
 import uiRouter from 'angular-ui-router';
-import uiBootstrap from 'angular-ui-bootstrap';
+import ngTable from 'angular-material-data-table';
+// import uiBootstrap from 'angular-ui-bootstrap';
 // import ngMessages from 'angular-messages';
 // import ngValidationMatch from 'angular-validation-match';
 
@@ -32,7 +34,8 @@ import socket from '../components/socket/socket.service';
 import './app.scss';
 
 angular.module('ctfApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-    uiBootstrap, _Auth, account, admin, navbar, footer, main, scoreboard, question, constants, socket, util,'ngMaterial'
+    /*uiBootstrap,*/ _Auth, account, admin, navbar, footer, main, scoreboard, question, constants, socket, util,
+    ngAnimate,ngAria,ngMaterial,ngTable
   ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

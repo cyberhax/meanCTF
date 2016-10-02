@@ -1,6 +1,6 @@
 
 <div class="container" ng-show='{{status}}'>
-<table class="table table-bordered" >
+<table class="table table-hover">
   <thead>
     <td>ID</td>
     <td>Name</td>
@@ -18,8 +18,33 @@
     <td>{{soalan.hint}}</td>
     <td>{{soalan.point}}</td>
     <td><input type="text" placeholder='answer' ng-model="makan"></td>
-    <td><button class="btn btn-primary" ng-click="answer(makan,$index)">Submit</button></td>
+    <td><button class="btn waves-effect waves-light" ng-click="answer(makan,$index)">Submit</button></td>
   </tr>
   </tbody>
 </table>
+
+
+</div>
+
+<div class="container">
+  <md-card>
+<md-table-container>
+  <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+    <thead md-head md-order="query.order" md-on-reorder="getQuestion">
+      <tr md-row>
+        <th md-column><span>No</span></th>
+        <th md-column md-order-by="nameToLower"><span>Name</span></th>
+        <th md-column md-numeric md-order-by="info"><span>Description</span></th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-select="soalan" md-select-id="name" md-auto-select ng-repeat="soalan in questions">
+        <td md-cell>{{$index+1}}</td>
+        <td md-cell>{{soalan.name}}</td>
+        <td md-cell>{{soalan.info}}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+  </md-card>
 </div>

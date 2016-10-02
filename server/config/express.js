@@ -6,6 +6,7 @@
 
 import express from 'express';
 import favicon from 'serve-favicon';
+var serveIndex = require('serve-index')
 import morgan from 'morgan';
 import shrinkRay from 'shrink-ray';
 import bodyParser from 'body-parser';
@@ -25,6 +26,9 @@ export default function(app) {
   var env = app.get('env');
 
   app.use('/public',express.static(path.join(config.root, 'public')));
+  app.use('/public/lala', serveIndex('public/lala', {'icons': true}))
+  app.use('/node_modules',express.static(path.join(config.root,'node_modules')));
+
 
   if(env === 'development' || env === 'test') {
     app.use(express.static(path.join(config.root, '.tmp')));

@@ -9,7 +9,7 @@ export class QuestionComponent {
   /*@ngInject*/
   constructor($http, $scope, User,$timeout,$state) {
     
-    $scope.status = true;
+    $scope.status = false;
 
     $http.defaults.headers.post['Content-Type'] = 'application/json';
     $scope.user = User.get();
@@ -32,6 +32,24 @@ export class QuestionComponent {
       }
     };
     $timeout(filter,500);
+////////////////////////////////////
+    $scope.selected = [];
+
+    $scope.query = {
+      order: 'name',
+      limit: 5,
+      page: 1
+    };
+
+    function success(questions) {
+      $scope.questions = questions.filter(soal => {
+        return !($scope.user.question.includes(soal._id));
+      });
+    }
+
+  $scope.getQuestion = function () {
+    $scope.promise = $http.get('api/questions',success).$promise
+  };
 
 
     
