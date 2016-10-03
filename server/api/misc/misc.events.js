@@ -4,7 +4,7 @@
 
 'use strict';
 
- {EventEmitter} from 'events';
+import {EventEmitter} from 'events';
 import Misc from './misc.model';
 var MiscEvents = new EventEmitter();
 
