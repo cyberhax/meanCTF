@@ -9,7 +9,7 @@ export class QuestionComponent {
   /*@ngInject*/
   constructor($http, $scope, User,$timeout,$state) {
     
-    $scope.status = false;
+    $scope.status = true;
 
     $http.defaults.headers.post['Content-Type'] = 'application/json';
     $scope.user = User.get();
