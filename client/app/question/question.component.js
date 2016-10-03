@@ -7,57 +7,44 @@ import routes from './question.routes';
 
 export class QuestionComponent {
   /*@ngInject*/
-  constructor($http, $scope, User,$timeout,$state) {
-    
-    $scope.status = true;
-
-    $http.defaults.headers.post['Content-Type'] = 'application/json';
+  constructor($http, $scope, User,$timeout,$state,$mdToast) {
     $scope.user = User.get();
+    $scope.status = true;
+    $http.defaults.headers.post['Content-Type'] = 'application/json';
     
-    $timeout(retrieveQuestions,0).then(()=>{
+    
+    $timeout(retrieveQuestions,1000).then(()=>{
       console.log('done load question');
-
-    $scope.answer = function(answer, index) {
-      $scope.test.answer = answer;
-      if ($scope.test.answer) {
-        $scope.test = {
-          answer: '',
-          user: $scope.user
-        };
-        // console.log('sned:', $scope.test);
-        $http.post('api/questions/answer/' + $scope.questions[index]._id, $scope.test).success(function() {
-          $scope.test = '';
-          $state.go($state.$current, null, { reload: true });
-        });
-      }
-    };
-    $timeout(filter,500);
-////////////////////////////////////
-    $scope.selected = [];
-
-    $scope.query = {
-      order: 'name',
-      limit: 5,
-      page: 1
-    };
-
-    function success(questions) {
-      $scope.questions = questions.filter(soal => {
-        return !($scope.user.question.includes(soal._id));
       });
-    }
 
-  $scope.getQuestion = function () {
-    $scope.promise = $http.get('api/questions',success).$promise
-  };
-
-
-    
-
-    })
-
-    
-
+      $scope.answer = function (answer, index) {
+        $scope.test = {
+            answer: '',
+            user: $scope.user
+          };
+        $scope.test.answer = answer;
+        console.log('answer',$scope.test.answer);
+        if ($scope.test.answer) {
+          console.log('sned:', $scope.test);
+          $http.post('api/questions/answer/' + $scope.questions[index]._id, $scope.test).then(function (res) {            
+            $scope.test = '';
+            $state.go($state.$current, null, { reload: true });
+            $mdToast.show(
+                     $mdToast.simple()
+                        .textContent('Betul!!!!')                       
+                        .hideDelay(2000)
+                        .position('bottom right')
+            );
+        },function(res){
+            $mdToast.show(
+                     $mdToast.simple()
+                        .textContent('Salah!!!!')                       
+                        .hideDelay(2000)
+                        .position('bottom right')
+            );
+        })
+        }
+      };
     
 
 function retrieveQuestions(){

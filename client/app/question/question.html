@@ -1,50 +1,58 @@
 
 <div class="container" ng-show='{{status}}'>
+  <md-card class="md-raised">
+    <md-card-header>
+      <h3>Question</h3>
+    </md-card-header>
 <table class="table table-hover">
   <thead>
     <td>ID</td>
     <td>Name</td>
     <td>Info</td>
     <td>Hint</td>
-    <td>Point</td>
-    <td>Answer</td>
-    <td>Submit</td>
+    <td colspan="3">Point</td>
   </thead>
-  <tbody ng-repeat="soalan in questions">
+  <tbody ng-repeat="soalan in questions" ng-model="questions">
   <tr>
-    <td>{{$index+1}}</td>
-    <td>{{soalan.name}}</td>
-    <td>{{soalan.info}}</td>
-    <td>{{soalan.hint}}</td>
-    <td>{{soalan.point}}</td>
-    <td><input type="text" placeholder='answer' ng-model="makan"></td>
-    <td><button class="btn waves-effect waves-light" ng-click="answer(makan,$index)">Submit</button></td>
+    <td>
+       <md-input-container>
+         {{$index+1}}
+       </md-input-container>
+    </td>
+    <td> 
+      <md-input-container>
+      {{soalan.name}}
+      </md-input-container>
+    </td>
+    <td>
+       <md-input-container>
+         {{soalan.info}}
+       </md-input-container>
+   </td>
+    <td>
+       <md-input-container>
+         {{soalan.hint}}
+       </md-input-container>
+    </td>
+    <td> <md-input-container>
+      {{soalan.point}}
+      </md-input-container>
+    </td>
+    <td>
+      <md-input-container>
+        <form>
+         <input type="text" ng-model="makan" placeholder="answer">
+        </form>
+      </md-input-container>
+    </td>
+    <td>
+       <md-input-container>
+         <md-button class="md-raised md-primary" ng-click="answer(makan,$index)">Submit</button>
+       </md-input-container>
+    </td>
   </tr>
   </tbody>
 </table>
-
-
-</div>
-
-<div class="container">
-  <md-card>
-<md-table-container>
-  <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-    <thead md-head md-order="query.order" md-on-reorder="getQuestion">
-      <tr md-row>
-        <th md-column><span>No</span></th>
-        <th md-column md-order-by="nameToLower"><span>Name</span></th>
-        <th md-column md-numeric md-order-by="info"><span>Description</span></th>
-      </tr>
-    </thead>
-    <tbody md-body>
-      <tr md-row md-select="soalan" md-select-id="name" md-auto-select ng-repeat="soalan in questions">
-        <td md-cell>{{$index+1}}</td>
-        <td md-cell>{{soalan.name}}</td>
-        <td md-cell>{{soalan.info}}</td>
-      </tr>
-    </tbody>
-  </table>
-</md-table-container>
   </md-card>
+
 </div>
