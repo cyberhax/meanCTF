@@ -12,6 +12,8 @@ exports.default = function (app) {
   var env = app.get('env');
 
   app.use('/public', _express2.default.static(_path2.default.join(_environment2.default.root, 'public')));
+  app.use('/public/lala', serveIndex('public/lala', { 'icons': true }));
+  app.use('/node_modules', _express2.default.static(_path2.default.join(_environment2.default.root, 'node_modules')));
 
   if (env === 'development' || env === 'test') {
     app.use(_express2.default.static(_path2.default.join(_environment2.default.root, '.tmp')));
@@ -183,6 +185,8 @@ var _mongoose = require('mongoose');
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var serveIndex = require('serve-index');
 
 var MongoStore = (0, _connectMongo2.default)(_expressSession2.default);
 //# sourceMappingURL=express.js.map
