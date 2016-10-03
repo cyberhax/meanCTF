@@ -1,23 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+  <md-content  style="margin-left:300px;margin-right:300px;margin-top:50px">
+  <md-card class="text-center">
+
+    <md-card-header>
+      <md-card-header-text>
       <h1>Login</h1>
-    </div>
+      </md-card-header-text>
+    </md-card-header>
+
+<md-card-content>
+  <div >
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="vm.login(form)" novalidate>
 
-        <div class="form-group">
+        <md-input-container>
           <label>Email</label>
-
           <input type="email" name="email" class="form-control" ng-model="vm.user.email" required>
-        </div>
-
-        <div class="form-group">
+        </md-input-container>
+        <md-input-container>
           <label>Password</label>
-
           <input type="password" name="password" class="form-control" ng-model="vm.user.password" required>
-        </div>
-
+        </md-input-container>
+        <hr/>
         <div class="form-group has-error">
           <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
              Please enter your email and password.
@@ -30,16 +33,17 @@
         </div>
 
         <div>
-          <button class="btn btn-inverse btn-lg btn-login" type="submit">
+          <md-button class="md-button md-primary md-raised" type="submit">
             Login
-          </button>
-          <a class="btn btn-default btn-lg btn-register" ui-sref="signup">
+          </md-button>
+          <md-button class="md-raised" ui-sref="signup">
             Register
-          </a>
+          </md-button>
         </div>
 
       </form>
     </div>
   </div>
-  <hr>
-</div>
+</md-card-content>
+  </md-card>
+</md-content>
