@@ -144,6 +144,8 @@ function checkAnswer(req, res) {
           });
         }
       });
+    } else {
+      res.status(444).end();
     }
   })
   //.then(checkAnswer(res))
