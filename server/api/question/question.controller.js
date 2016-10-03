@@ -119,7 +119,7 @@ export function destroy(req, res) {
 }
 
 export function checkAnswer(req, res) {
-  
+
   return Question.findById(req.params.id).exec()
     .then((question)=>{
       // console.log('checkAnswer',question);
