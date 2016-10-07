@@ -35,6 +35,8 @@ export class QuestionComponent {
                         .hideDelay(2000)
                         .position('bottom right')
             );
+
+            
         },function(res){
             $mdToast.show(
                      $mdToast.simple()
