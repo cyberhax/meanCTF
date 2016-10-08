@@ -10,6 +10,7 @@ import ngMaterial from 'angular-material';
 import ngAria from 'angular-aria';
 import uiRouter from 'angular-ui-router';
 import ngTable from 'angular-material-data-table';
+
 // import uiBootstrap from 'angular-ui-bootstrap';
 // import ngMessages from 'angular-messages';
 // import ngValidationMatch from 'angular-validation-match';
@@ -26,6 +27,7 @@ import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
 import main from './main/main.component';
 import scoreboard from './scoreboard/scoreboard.component';
+import chat from './chat/chat.component';
 import question from './question/question.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
@@ -34,7 +36,7 @@ import socket from '../components/socket/socket.service';
 import './app.scss';
 
 angular.module('ctfApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-    /*uiBootstrap,*/ _Auth, account, admin, navbar, footer, main, scoreboard, question, constants, socket, util,
+    /*uiBootstrap,*/ _Auth, account, admin, navbar, footer, main, scoreboard,chat, question, constants, socket, util,
     ngAnimate,ngAria,ngMaterial,ngTable
   ])
   .config(routeConfig)

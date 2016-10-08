@@ -19,6 +19,7 @@ $fa-font-path: '/assets/fonts/font-awesome/';
 // Component styles are injected through gulp
 /* inject:scss */
 @import 'admin/admin';
+@import 'chat/chat';
 @import 'main/main';
 @import 'misc/misc';
 @import 'question/question';
@@ -35,3 +36,4 @@ $fa-font-path: '/assets/fonts/font-awesome/';
 .primary-text-color    { color: #212121; }
 .secondary-text-color  { color: #757575; }
 .divider-color         { border-color: #BDBDBD; }
+

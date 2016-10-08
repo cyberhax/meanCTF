@@ -25,7 +25,7 @@ export class QuestionComponent {
         $scope.test.answer = answer;
         console.log('answer',$scope.test.answer);
         if ($scope.test.answer) {
-          console.log('sned:', $scope.test);
+          // console.log('sned:', $scope.test);
           $http.post('api/questions/answer/' + $scope.questions[index]._id, $scope.test).then(function (res) {            
             $scope.test = '';
             $state.go($state.$current, null, { reload: true });

@@ -14,6 +14,10 @@ export class ScoreboardComponent {
       socket.syncUpdates('user',$scope.users);
       // console.log(users);
     });
+
+    $scope.$on('user:save',()=>{
+      console.log('user:save event emitted');
+    });
   }
 }
 

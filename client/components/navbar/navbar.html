@@ -2,21 +2,21 @@
 <md-toolbar>
   <div class="container" layout="row">
     <div>
-      <a href="/" style="color:white;float:left;padding:12px">meanCTF</a>
+    <img ui-sref="main" src="assets/images/cybersocks_transparent-b63369ad3c.png" alt="cybersocks" style="width:100px;height:50px;float:left;padding:12px;margin-top:6px">
     </div>
-
-      <div ng-repeat="item in $ctrl.menu" ui-sref-active="active" style="float:left;padding:12px">
+      <div ng-repeat="item in $ctrl.menu" ui-sref-active="active" style="float:left;padding:12px;margin-top:6px">
             <a ui-sref="{{item.state}}" style="color:white">{{item.title}}</a>
       </div>
-      <a ng-show="$ctrl.isAdmin()" ui-sref-active="active" ui-sref="admin">Admin</a>
+
+      <a style="float:left;padding:12px;color:white" ng-show="$ctrl.isAdmin()" style="color:white ui-sref-active="active" ui-sref="admin">Admin</a>
       <span flex></span>
 
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
         <li ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-        <li ng-show="$ctrl.isLoggedIn()"><p class="navbar-text">Hello {{ $ctrl.getCurrentUser().name }} {{$ctrl.getCurrentUser().point}}</p> </li>
-        <li ng-show="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
-        <li ng-show="$ctrl.isLoggedIn()"><a ui-sref="logout" style="color:white;padding:16px">Logout</a></li>
+        <li ng-show="$ctrl.isLoggedIn()"><p style="color:white;margin-top:16px" class="navbar-text">Hello {{ $ctrl.getCurrentUser().name }} {{$ctrl.getCurrentUser().point}}</p> </li>
+        <li ng-show="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span style="color:white;margin-top:6px" class="glyphicon glyphicon-cog"></span></a></li>
+        <li ng-show="$ctrl.isLoggedIn()"><a ui-sref="logout" style="color:white;padding:16px;margin-top:6px">Logout</a></li>
       </ul>
     </div>
     </md-toolbar>

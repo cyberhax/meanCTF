@@ -2,12 +2,42 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
     <base href="/">
     <title>UTPHAX Training</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(["init", {
+          appId: "096f58c1-3373-464e-b782-724d935fc12b",
+          autoRegister: true,
+          notifyButton: {
+            enable: true, /* Set to false to hide */
+            theme: 'default',
+            showCredit: false,
+            promptOptions: {
+                /* These prompt options values configure both the HTTP prompt and the HTTP popup. */
+                /* actionMessage limited to 90 characters */
+                actionMessage: "We'd like to show you notifications for who answered a question.",
+                /* acceptButtonText limited to 15 characters */
+                acceptButtonText: "ALLOW",
+                /* cancelButtonText limited to 15 characters */
+                cancelButtonText: "NO THANKS :p"
+            },
+            welcomeNotification: {
+                "title": "Welcome to balblabla",
+                "message": "Thanks for subscribing!!! xDDD",
+                "url": "https://cybersocks.org" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
+            }
+          }
+        }]);
+      </script>
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css">
+    <link rel='stylesheet' href='../node_modules/angular-loading-bar/build/loading-bar.min' />
     <!--<link rel="stylesheet" href="../node_modules/angular-material-data-table/dist/md-data-table.css">-->
 </head>
 <body>

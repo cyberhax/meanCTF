@@ -27,6 +27,7 @@ function emitEvent(event) {
   return function(doc) {
     QuestionEvents.emit(event + ':' + doc._id, doc);
     QuestionEvents.emit(event, doc);
+    console.log('event dkt emitEvent',event);
   };
 }
 

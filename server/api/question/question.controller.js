@@ -14,6 +14,39 @@ import jsonpatch from 'fast-json-patch';
 import Question from './question.model';
 import User from '../user/user.model';
 
+var sendNotification = function(data) {
+  var headers = {
+    "Content-Type": "application/json; charset=utf-8",
+    "Authorization": "Basic ZWNiMjQ4MGYtNzUyZi00ODMzLTlmZTEtNTkxYzQ4MmJjYzY5"
+  };
+  
+  var options = {
+    host: "onesignal.com",
+    port: 443,
+    path: "/api/v1/notifications",
+    method: "POST",
+    headers: headers
+  };
+  
+  var https = require('https');
+  var req = https.request(options, function(res) {  
+    res.on('data', function(data) {
+      console.log("Response:");
+      console.log(JSON.parse(data));
+    });
+  });
+  
+  req.on('error', function(e) {
+    console.log("ERROR:");
+    console.log(e);
+  });
+  
+  req.write(JSON.stringify(data));
+  req.end();
+};
+
+
+
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -128,10 +161,14 @@ export function checkAnswer(req, res) {
         User.findById(req.body.user._id).exec()
         .then(user1=>{
 
-          // console.log(!(user1.question.indexOf(question._id)>-1));
-          // console.log('user1.ques',user1.question,' question._id',question._id);
-          if(!(user1.question.indexOf(question._id)>-1)){
-
+          if(!(user1.question.includes(question._id))){
+          let message = {
+              app_id: "096f58c1-3373-464e-b782-724d935fc12b",
+              contents: { "en": `${user1.name} answered question\r\n\r\n${question.info}` },
+              included_segments: ["All"]
+            };
+          sendNotification(message);
+          
           user1.point += question.point;
           user1.question.push(req.params.id);
           return user1.save()
