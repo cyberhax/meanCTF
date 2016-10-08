@@ -13,7 +13,7 @@ export class QuestionComponent {
     $http.defaults.headers.post['Content-Type'] = 'application/json';
     
     
-    $timeout(retrieveQuestions,1000).then(()=>{
+    $timeout(retrieveQuestions,0).then(()=>{
       console.log('done load question');
       });
 

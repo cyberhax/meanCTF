@@ -1,6 +1,6 @@
 <div class="container">
   <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
-  <ul class="list-group user-list">
+  <ul class="list-group user-list" ng-show="false">
     <li class="list-group-item" ng-repeat="user in admin.users">
 	    <div class="user-info">
 	        <strong>{{user.name}}</strong><br>
@@ -9,6 +9,29 @@
         <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
     </li>
   </ul>
+
+  <table class="table">
+      <tbody ng-repeat="question in questions" ng-model="questions">
+      <td>
+          <p editable-text="question.name">{{question.name||"empty"}}</p>
+      </td>
+      <td>
+          <p editable-text="question.info">{{question.info||"empty"}}</p>
+      </td>
+      <td>
+          <p editable-text="question.hint">{{question.hint||"empty"}}</p>
+      </td>
+      <td>
+          <p editable-text="question.answer">{{question.answer||"empty"}}</p>
+      </td>
+      <td>
+          <p editable-text="question.point">{{question.point||"empty"}}</p>
+      </td>
+      <td>
+        <md-button class="md-primary md-ink-ripple md-raised"" ng-click="editQuestion($index)">Submit</md-button>
+      </td>
+  </tbody>
+  </table>
 
 
 

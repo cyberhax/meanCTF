@@ -16,7 +16,27 @@ export default class AdminController {
         });
         } //end if
     };
+
+    $scope.editQuestion = function (index) {
+        console.log('index',index);
+        $http.put('/api/questions/'+$scope.questions[index]._id,$scope.questions[index]).success(()=>{
+            console.log('Done update');
+        });
+    };
+
+    function retrieveQuestions(){
+      $http.get('api/questions').then(questions => {
+            // console.log($scope.user.question);
+            $scope.questions = questions.data;
+            console.log(questions.data);
+          });
+      }
+
+    retrieveQuestions();
+
   }
+
+  
 
   delete(user) {
     user.$remove();

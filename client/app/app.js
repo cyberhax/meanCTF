@@ -37,12 +37,13 @@ import './app.scss';
 
 angular.module('ctfApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
     /*uiBootstrap,*/ _Auth, account, admin, navbar, footer, main, scoreboard,chat, question, constants, socket, util,
-    ngAnimate,ngAria,ngMaterial,ngTable
+    ngAnimate,ngAria,ngMaterial,ngTable,"xeditable"
   ])
   .config(routeConfig)
-  .run(function($rootScope, $location, Auth) {
+  .run(function($rootScope, $location, Auth,editableOptions) {
     'ngInject';
     // Redirect to login if route requires auth and you're not logged in
+    editableOptions.theme = 'default'; // bootstrap3 theme. Can be also 'bs2', 'default'
 
     $rootScope.$on('$stateChangeStart', function(event, next) {
       Auth.isLoggedIn(function(loggedIn) {
