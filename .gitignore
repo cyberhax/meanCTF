@@ -8,5 +8,6 @@ client/index.html
 /server/config/local.env.js
 npm-debug.log
 coverage
+dist
 backup
 test.js

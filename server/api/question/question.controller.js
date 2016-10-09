@@ -99,7 +99,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Questions
 export function index(req, res) {
-  return Question.find().exec()
+  return Question.find({},'-answer -__v').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

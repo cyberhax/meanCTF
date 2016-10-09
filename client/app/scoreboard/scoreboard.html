@@ -1,6 +1,10 @@
 <div class="container">
-  <h1> scoreboard </h1>
+  
   <md-card>
+      <md-toolbar> 
+        <h3 class="text-center">Scoreboard</h3> 
+      </md-toolbar>
+      <md-content>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -11,10 +15,12 @@
     </thead>
     <tbody ng-repeat="user in users | orderBy:'-point'">
       <tr>
-        <th>{{$index+1}}</th>
-        <td>{{user.name}}</td>
-        <td>{{user.point}}</td>
+        <td ng-bind="$index+1"></td>
+        <td ng-bind="user.name"></td>
+        <td ng-bind="user.point"></td>
       </tr>
+    </tbody>
   </table>
+      </md-content>
   </md-card>
 </div>

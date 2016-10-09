@@ -1,9 +1,9 @@
 
 <div class="container" ng-show='{{status}}'>
-  <md-card class="md-raised">
-    <md-card-header>
-      <h3>Question</h3>
-    </md-card-header>
+  <md-card ng-cloak>
+    <md-toolbar>
+      <h3 class="text-center">Question</h3>
+    </md-toolbar>
 <table class="table table-hover">
   <thead>
     <td>ID</td>
@@ -12,30 +12,27 @@
     <td>Hint</td>
     <td colspan="3">Point</td>
   </thead>
-  <tbody ng-repeat="soalan in questions" ng-model="questions">
+ 
+  <tbody ng-repeat="soalan in questions" ng-model="questions" ng-cloak>
   <tr>
     <td>
-       <md-input-container>
-         {{$index+1}}
+       <md-input-container ng-bind="$index+1">
        </md-input-container>
     </td>
     <td> 
-      <md-input-container>
-      {{soalan.name}}
+      <md-input-container ng-bind="soalan.name">
       </md-input-container>
     </td>
     <td>
        <md-input-container data-ng-bind-html="soalan.info | linky">
-         {{soalan.info}}
        </md-input-container>
    </td>
     <td>
-       <md-input-container>
-         {{soalan.hint}}
+       <md-input-container ng-bind="soalan.hint">
        </md-input-container>
     </td>
-    <td> <md-input-container>
-      {{soalan.point}}
+    <td> 
+      <md-input-container ng-bind="soalan.point">
       </md-input-container>
     </td>
     <td>
@@ -54,5 +51,5 @@
   </tbody>
 </table>
   </md-card>
-
+ <md-progress-circular ng-hide="questions" md-mode="indeterminate"></md-progress-circular>
 </div>
