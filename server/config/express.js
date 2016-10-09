@@ -21,7 +21,6 @@ import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 var MongoStore = connectMongo(session);
-var compression = require('compression')
 
 export default function(app) {
   var env = app.get('env');
@@ -29,7 +28,6 @@ export default function(app) {
   app.use('/public',express.static(path.join(config.root, 'public'),{ maxAge: 31557600 }));
   app.use('/public/lala', serveIndex('public/lala', {'icons': true}));
   app.use('/node_modules',express.static(path.join(config.root,'node_modules')));
-  app.use(compression());
   app.set('view cache', true);
 
 
@@ -50,7 +48,11 @@ export default function(app) {
   app.set('views', `${config.root}/server/views`);
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
-  app.use(shrinkRay());
+  app.use(shrinkRay({
+    brotli: {
+		quality: 11 // Compression level configurable from 1 to 11
+	}
+  }));
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
 

@@ -19,6 +19,8 @@ function onConnect(socket) {
   require('../api/misc/misc.socket').register(socket);
   require('../api/question/question.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
+  require('../api/user/user.socket').register(socket);
+
 }
 
 export default function(socketio) {
@@ -43,7 +45,7 @@ export default function(socketio) {
     socket.connectedAt = new Date();
 
     socket.log = function(...data) {
-      // console.log(`SocketIO ${socket.nsp.name} [${socket.address}]`, ...data);
+      console.log(`SocketIO ${socket.nsp.name} [${socket.address}]`, ...data);
     };
 
     // Call onDisconnect.

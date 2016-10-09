@@ -40,10 +40,21 @@ angular.module('ctfApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io',
     ngAnimate,ngAria,ngMaterial,ngTable,"xeditable"
   ])
   .config(routeConfig)
-  .run(function($rootScope, $location, Auth,editableOptions) {
+  .run(function($rootScope, $location, Auth,editableOptions,editableThemes) {
     'ngInject';
     // Redirect to login if route requires auth and you're not logged in
-    editableOptions.theme = 'default'; // bootstrap3 theme. Can be also 'bs2', 'default'
+    // editableOptions.theme = 'default'; // bootstrap3 theme. Can be also 'bs2', 'default'
+    editableThemes['angular-material'] = {
+    formTpl:      '<form class="editable-wrap"></form>',
+    noformTpl:    '<span class="editable-wrap"></span>',
+    controlsTpl:  '<md-input-container class="editable-controls" ng-class="{\'md-input-invalid\': $error}"></md-input-container>',
+    inputTpl:     '',
+    errorTpl:     '<div ng-messages="{message: $error}"><div class="editable-error" ng-message="message">{{$error}}</div></div>',
+    buttonsTpl:   '<span class="editable-buttons"></span>',
+    submitTpl:    '<md-button type="submit" class="md-primary">save</md-button>',
+    cancelTpl:    '<md-button type="button" class="md-warn" ng-click="$form.$cancel()">cancel</md-button>'
+  };
+  editableOptions.theme = 'angular-material';
 
     $rootScope.$on('$stateChangeStart', function(event, next) {
       Auth.isLoggedIn(function(loggedIn) {

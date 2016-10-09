@@ -37,3 +37,28 @@ $fa-font-path: '/assets/fonts/font-awesome/';
 .secondary-text-color  { color: #757575; }
 .divider-color         { border-color: #BDBDBD; }
 
+md-input-container.editable-controls {
+    padding: 1px ;
+    padding-left: 10px ;
+    margin: 1px ;
+}
+
+.editable-input.md-input {
+    font-size: 13px ;
+    font-weight: 600;
+    color: #716e6e;
+    max-width: 500px ;
+    margin: 1px ;
+}
+
+.editable-wrap.editable-text {
+    margin: 1px ;
+}
+
+md-input-container.editable-controls [ng-message] {
+    position: static !important;
+}
+
+.editable-wrap .editable-input{
+  width: 500px;
+}

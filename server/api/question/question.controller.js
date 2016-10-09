@@ -115,6 +115,14 @@ export function show(req, res) {
 // Creates a new Question in the DB
 export function create(req, res) {
   return Question.create(req.body)
+    .then(()=>{
+      let message = {
+              app_id: "096f58c1-3373-464e-b782-724d935fc12b",
+              contents: { "en": `new question added` },
+              included_segments: ["Active Users"]
+            };
+          sendNotification(message);
+    })
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }

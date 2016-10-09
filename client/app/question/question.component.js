@@ -23,13 +23,12 @@ export class QuestionComponent {
             user: $scope.user
           };
         $scope.test.answer = answer;
-        console.log('answer',$scope.test.answer);
+        // console.log('answer',$scope.test.answer);
         if ($scope.test.answer) {
           // console.log('sned:', $scope.test);
           $http.post('api/questions/answer/' + $scope.questions[index]._id, $scope.test).then(function (res) {            
             $scope.test = '';
-            // $state.go($state.$current, null, { reload: true });
-            retrieveQuestions();
+            $state.go($state.$current, null, { reload: true });
             $mdToast.show(
                      $mdToast.simple()
                         .textContent('Betul!!!!')                       
