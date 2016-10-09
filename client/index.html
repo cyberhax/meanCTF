@@ -1,17 +1,18 @@
-<html>
+<!doctype html>
+<html ⚡>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    
+    <meta content="ie=edge">
     <base href="/">
+    <link rel="canonical" href="" />
     <title>UTPHAX Training</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="manifest" href="/manifest.json">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
-        navigator.serviceWorker.register('service-worker.js');
         var OneSignal = window.OneSignal || [];
         OneSignal.push(["init", {
           appId: "096f58c1-3373-464e-b782-724d935fc12b",
@@ -37,8 +38,8 @@
           }
         }]);
       </script>
-    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.min.css">
-    <link href="../node_modules/angular-xeditable/dist/css/xeditable.min.css" rel="stylesheet">
+    <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
+    <link async href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/css/xeditable.min.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="../node_modules/angular-material-data-table/dist/md-data-table.css">-->
 </head>
 <body>
@@ -63,10 +64,11 @@
 
     <!--<script src="../node_modules/angular-material-data-table/dist/md-data-table.js"></script>-->
     <footer></footer>
-    <script src="../node_modules/angular/angular.min.js" async></script>
-    <script src="../node_modules/angular-angular-animate.min.js" async></script>
-    <script src="../node_modules/angular-aria/angular-aria.min.js" async></script>
-    <script src="../node_modules/angular-material/angular-material.min.js" async></script>
-    <script src="../node_modules/angular-xeditable/dist/js/xeditable.min.js" async></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js" async ></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-aria.min.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.min.js" async></script>
 <script type="text/javascript" src="/vendor.bundle.js"></script><script type="text/javascript" src="/polyfills.bundle.js"></script><script type="text/javascript" src="/app.bundle.js"></script></body>
 </html>

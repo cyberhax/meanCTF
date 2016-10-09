@@ -26,10 +26,12 @@ var compression = require('compression')
 export default function(app) {
   var env = app.get('env');
 
-  app.use('/public',express.static(path.join(config.root, 'public')));
-  app.use('/public/lala', serveIndex('public/lala', {'icons': true}))
+  app.use('/public',express.static(path.join(config.root, 'public'),{ maxAge: 31557600 }));
+  app.use('/public/lala', serveIndex('public/lala', {'icons': true}));
   app.use('/node_modules',express.static(path.join(config.root,'node_modules')));
   app.use(compression());
+  app.set('view cache', true);
+
 
 
   if(env === 'development' || env === 'test') {

@@ -7,13 +7,13 @@ import routes from './question.routes';
 
 export class QuestionComponent {
   /*@ngInject*/
-  constructor($http, $scope, User,$timeout,$state,$mdToast) {
+  constructor($http, $scope, User,$timeout,$state,$mdToast) { //dptkan user punya detail baru retrieve question
     $scope.user = User.get();
     $scope.status = true;
     $http.defaults.headers.post['Content-Type'] = 'application/json';
     
     
-    $timeout(retrieveQuestions,0).then(()=>{
+    $timeout(retrieveQuestions,500).then(()=>{
       console.log('done load question');
       });
 
@@ -28,7 +28,8 @@ export class QuestionComponent {
           // console.log('sned:', $scope.test);
           $http.post('api/questions/answer/' + $scope.questions[index]._id, $scope.test).then(function (res) {            
             $scope.test = '';
-            $state.go($state.$current, null, { reload: true });
+            // $state.go($state.$current, null, { reload: true });
+            retrieveQuestions();
             $mdToast.show(
                      $mdToast.simple()
                         .textContent('Betul!!!!')                       
@@ -65,7 +66,10 @@ function filter() {
     }
 }
     
+    retrieveQuestions();
   }
+
+
 }
 
 export default angular.module('ctfApp.question', [uiRouter])
