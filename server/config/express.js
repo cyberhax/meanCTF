@@ -21,7 +21,8 @@ import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 var MongoStore = connectMongo(session);
-var compression = require('compression')
+var compression = require('compression');
+
 
 
 export default function(app) {
