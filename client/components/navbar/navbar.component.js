@@ -13,10 +13,10 @@ export class NavbarComponent {
   },{
     title: 'Question',
     state: 'question'
-  },{
+  }/*,{
     title: 'Chat',
     state: 'chat'
-  }
+  }*/
   ];
   isLoggedIn: Function;
   isAdmin: Function;

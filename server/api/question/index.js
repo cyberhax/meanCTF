@@ -7,6 +7,7 @@ import * as auth from '../../auth/auth.service';
 var router = express.Router();
 
 router.get('/', controller.index);
+router.get('/admin', auth.hasRole('admin'), controller.indexAdmin);
 router.get('/:id', controller.show);
 router.post('/', auth.hasRole('admin'),controller.create);
 router.post('/answer/:id', controller.checkAnswer);

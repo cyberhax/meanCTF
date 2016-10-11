@@ -1,16 +1,14 @@
 <!doctype html>
-<html ⚡>
+<html>
 <head>
     <meta charset="utf-8">
     <meta content="ie=edge">
     <base href="/">
-    <link rel="canonical" href="" />
     <title>UTPHAX Training</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="manifest" href="/manifest.json">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
         var OneSignal = window.OneSignal || [];
@@ -38,8 +36,6 @@
           }
         }]);
       </script>
-    <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
-    <link async href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/css/xeditable.min.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="../node_modules/angular-material-data-table/dist/md-data-table.css">-->
 </head>
 <body>
@@ -59,7 +55,15 @@
     </script>
 
     <navbar></navbar>
-    <div ui-view=""></div>
+    <md-content>
+      <md-card>
+    <div ui-view="" class="fx-zoom-normal fx-dur-250 fx-ease-cubic" style="padding:60px">App is loading...</div>
+    <br/>
+      </md-card>
+    </md-content>
     <footer></footer>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/css/xeditable.min.css" rel="stylesheet">
+   
 </body>
 </html>

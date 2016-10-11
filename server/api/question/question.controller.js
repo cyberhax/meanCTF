@@ -104,6 +104,12 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
+export function indexAdmin(req, res) {
+  return Question.find({},'-__v').exec()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Gets a single Question from the DB
 export function show(req, res) {
   return Question.findById(req.params.id).exec()

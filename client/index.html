@@ -38,8 +38,6 @@
           }
         }]);
       </script>
-    <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
-    <link async href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/css/xeditable.min.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="../node_modules/angular-material-data-table/dist/md-data-table.css">-->
 </head>
 <body>
@@ -59,7 +57,15 @@
     </script>
 
     <navbar></navbar>
-    <div ui-view=""></div>
+    <md-content>
+      <md-card>
+    <div ui-view="" class="fx-zoom-normal fx-dur-250 fx-ease-cubic" style="padding:60px">App is loading...</div>
+    <br/>
+      </md-card>
+    </md-content>
     <footer></footer>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/css/xeditable.min.css" rel="stylesheet">
+   
 <script type="text/javascript" src="/vendor.bundle.js"></script><script type="text/javascript" src="/polyfills.bundle.js"></script><script type="text/javascript" src="/app.bundle.js"></script></body>
 </html>

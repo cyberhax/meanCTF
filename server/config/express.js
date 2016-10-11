@@ -21,10 +21,13 @@ import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 var MongoStore = connectMongo(session);
+var compression = require('compression')
+
 
 export default function(app) {
   var env = app.get('env');
 
+  app.use(compression())
   app.use('/public',express.static(path.join(config.root, 'public'),{ maxAge: 31557600 }));
   app.use('/public/lala', serveIndex('public/lala', {'icons': true}));
   app.use('/node_modules',express.static(path.join(config.root,'node_modules')));

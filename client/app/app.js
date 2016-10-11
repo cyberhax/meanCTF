@@ -10,6 +10,7 @@ import ngMaterial from 'angular-material';
 import ngAria from 'angular-aria';
 import uiRouter from 'angular-ui-router';
 import ngTable from 'angular-material-data-table';
+import ngFx from 'ng-fx';
 
 // import uiBootstrap from 'angular-ui-bootstrap';
 // import ngMessages from 'angular-messages';
@@ -37,7 +38,7 @@ import './app.scss';
 
 angular.module('ctfApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
     /*uiBootstrap,*/ _Auth, account, admin, navbar, footer, main, scoreboard,chat, question, constants, socket, util,
-    ngAnimate,ngAria,ngMaterial,ngTable,"xeditable"
+    ngAnimate,ngAria,ngMaterial,ngTable,"xeditable",ngFx
   ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth,editableOptions,editableThemes) {

@@ -25,7 +25,7 @@ export default class AdminController {
     };
 
     function retrieveQuestions(){
-      $http.get('api/questions').then(questions => {
+      $http.get('api/questions/admin').then(questions => {
             // console.log($scope.user.question);
             $scope.questions = questions.data;
             console.log(questions.data);

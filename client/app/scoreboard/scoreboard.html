@@ -13,13 +13,15 @@
         <th>Point</th>
       </tr>
     </thead>
-    <tbody ng-repeat="user in users | orderBy:'-point'">
+    <tbody ng-repeat="user in users | orderBy:'-point'" class="fx-fade-normal fx-dur-1000 fx-ease-quad" ng-cloak>
       <tr>
         <td ng-bind="$index+1"></td>
         <td ng-bind="user.name"></td>
         <td ng-bind="user.point"></td>
       </tr>
     </tbody>
+    <md-progress-circular ng-hide="users" md-mode="indeterminate"></md-progress-circular>
+
   </table>
       </md-content>
   </md-card>

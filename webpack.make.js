@@ -9,6 +9,8 @@ var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var fs = require('fs');
 var path = require('path');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+var CompressionPlugin = require("compression-webpack-plugin");
+
 
 module.exports = function makeWebpackConfig(options) {
     /**
@@ -320,8 +322,16 @@ module.exports = function makeWebpackConfig(options) {
                 'process.env': {
                     NODE_ENV: '"production"'
                 }
+            }),
+            new CompressionPlugin({
+                asset: "[path].gz[query]",
+                algorithm: "gzip",
+                test: /\.js$|\.html$/,
+                threshold: 10240,
+                minRatio: 0.8
             })
         );
+            
     }
 
     if(DEV) {
