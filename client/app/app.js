@@ -30,6 +30,7 @@ import main from './main/main.component';
 import scoreboard from './scoreboard/scoreboard.component';
 import chat from './chat/chat.component';
 import question from './question/question.component';
+import profile from './profile/profile.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
@@ -37,7 +38,7 @@ import socket from '../components/socket/socket.service';
 import './app.scss';
 
 angular.module('ctfApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-    /*uiBootstrap,*/ _Auth, account, admin, navbar, footer, main, scoreboard,chat, question, constants, socket, util,
+    /*uiBootstrap,*/ _Auth, account, admin, navbar, footer, main, scoreboard,chat, question,profile, constants, socket, util,
     ngAnimate,ngAria,ngMaterial,ngTable,"xeditable",ngFx
   ])
   .config(routeConfig)

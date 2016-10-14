@@ -31,7 +31,7 @@ export function index(req, res) {
 }
 
 export function scoreboard(req, res) {
-  return User.find({role:'user'}, 'name point').exec()
+  return User.find({role:'user'}, 'name point').sort({'point':-1}).exec()
     .then(users => {
       res.status(200).json(users);
     })

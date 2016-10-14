@@ -1,0 +1,64 @@
+<div class="container">
+  <md-card>
+    <md-toolbar>
+      <h3 class="text-center">Profile</h3>
+    </md-toolbar>
+      <md-card layout="row">
+        <div flex="50" layout="column" layout-padding layout-margin layout-fill style="min-height: 224px;">
+          <div layout="row">
+            <span flex=20></span>
+            <img  height="233" width="233" style="border-radius:100px" src="https://scontent.fkul1-1.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/10906448_841533715893174_1257940253785159365_n.jpg?efg=eyJpIjoiYiJ9&oh=aa436cd6aec82e49eea8cc6826c8e3a6&oe=5869E2E1" alt="">
+            <span flex=20></span>          
+          </div>
+          <div class="text-center" ng-bind="user.name"></div>
+
+          <div>
+            <md-list layout="row">
+              <md-list-item ng-repeat="item in [1,2,3]" >
+                {{item}}fb
+              </md-list-item>
+            </md-list>
+          </div>
+        </div>
+        <div flex layout-padding layout-margin layout-fill style="min-height: 224px;" layout:"column">
+          <md-card>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Information</span>
+              </md-card-title-text>
+              </md-card-title>
+            <md-card-content>
+              <md-list>
+                <md-list-item>
+                  <i class="material-icons">people</i>Email : {{user.email}}
+                </md-list-item>
+                <md-list-item>
+                  <i class="material-icons">attach_money</i>Point : {{user.point}}
+                </md-list-item>
+                <md-list-item>
+                  <i class="material-icons">format_list_numbered</i>Ranking : pending
+                </md-list-item>
+                <md-list-item>
+                  <i class="material-icons">whatshot</i>Title : pending
+                </md-list-item>
+              </md-list>
+            </md-card-content>
+          </md-card>
+          <md-card>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Solved Question</span>
+              </md-card-title-text>
+              </md-card-title>
+            <md-card-content>
+              <md-list>
+                <md-list-item ng-repeat="item in questions">
+                  {{item.info}}
+                </md-list-item>
+              </md-list>
+            </md-card-content>
+          </md-card>
+        </div>
+      </md-card>
+  </md-card>
+</div>

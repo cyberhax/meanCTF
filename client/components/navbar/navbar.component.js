@@ -13,7 +13,11 @@ export class NavbarComponent {
   },{
     title: 'Question',
     state: 'question'
-  }/*,{
+  },{
+    title: 'Profile',
+    state: 'profile'
+  }
+  /*,{
     title: 'Chat',
     state: 'chat'
   }*/
